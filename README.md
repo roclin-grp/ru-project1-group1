@@ -2,9 +2,8 @@
 
 
 
-
-Alex Mojnov
 # Contributors
 Alex
 eric
 mav
+paul
