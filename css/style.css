@@ -11,6 +11,24 @@ h1 {
 }
 .container {
     position: relative;
-    margin-top: 100px;
+    margin-top: 80px;
     text-align: center;
+}
+.crdheader {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.cardstyle {
+    border: 1px solid darkred;
+    height: 200px;
+    box-shadow: 10px 10px 5px black;
+}
+.searchstyle {
+    border: 1px solid darkred;
+    text-transform: uppercase;
+}
+.bttn {
+    width: 200px;
+    border: 1px solid darkred;
 }
