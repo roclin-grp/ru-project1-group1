@@ -1,11 +1,11 @@
+console.log("link");
 
-
-function imageSearch(images) {
+// function imageSearch(images) {
 
   // Querying the images
   
   
-  var queryURL = "https://pixabay.com/api/" + images + "13029028-9381a11b0fa22374fee40bef8";
+  var queryURL = "https://pixabay.com/api/" + "cat" + "13029028-9381a11b0fa22374fee40bef8";
   $.ajax({
     url: queryURL,
     method: "GET"
@@ -24,7 +24,7 @@ function imageSearch(images) {
     $("#image-view").empty();
     $("#image-view").append(artistImage);
   });
-}
+// }
 
 // Event handler for user clicking the searching images  button
 $("SearchButton").on("click", function(event) {
