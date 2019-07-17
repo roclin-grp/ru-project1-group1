@@ -2,27 +2,45 @@ body {
     background-image: 
     linear-gradient(to right ,#cb2d3e , #1c26b9);
 }
+a {
+    color: white;
+}
+
+a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+img {
+    padding: 3px;
+    border-radius: 20px 0px 20px 0px;   
+}
+
 .title {
     text-align: center;
-    margin-top: 100px;
+    margin-top: 30px;
     color: white;
     font-family: 'Mountains of Christmas', cursive;
     font-size: 80px;
     text-shadow: 5px 5px 5px black;
 }
 
-.container {
+.contain {
     position: relative;
-    margin-top: 80px;
+    margin-top: 50px;
+    margin-left: 120px;
     text-align: center;
 }
 .crdheader {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 30px;
     font-weight: bold;
+    color: aliceblue;
+    text-shadow: 1px 1px 2px black;
 }
 .cardstyle {
     border: 1px solid darkred;
+    border-radius: 5px 5px 15px 5px;
     height: 200px;
     box-shadow: 5px 5px 10px black;
 }
@@ -39,15 +57,22 @@ body {
     height: 250px;
 }
 .brake {
-    margin-top: 300px;
+    margin-top: 200px;
 }
 
 .gifimages {
     text-align: center;
+
 }
 .editor {
-    max-width: 500px;
-    max-height: 500px;
-    height: 500px;
-    width: 500px;
+    padding: 0px 0px 0px 0px;
+    max-width: 450px;
+    max-height: 450px;
+    height: 450px;
+    width: 450px;
+    border-radius: 15px 0px 15px 0px;
 }
+.searchBox {
+    
+}
+
