@@ -12,7 +12,7 @@ var imgUrl = [];
             method: "GET"
         }).then(function (response) {
             imgUrl = []
-            for (i = 0; i < 8; i++) {
+            for (i = 0; i < 12; i++) {
                 var res = response.hits[i].largeImageURL
                 imgUrl.push(res)
                 console.log(imgUrl)
@@ -20,7 +20,7 @@ var imgUrl = [];
 
             $(".gifimages").html("")
 
-            for (i = 0; i < 8; i++) {
+            for (i = 0; i < 12; i++) {
                 $(".gifimages").append(`<a href="editor.html"><img class="results" src="${imgUrl[i]}"/></a>`)
     
             }

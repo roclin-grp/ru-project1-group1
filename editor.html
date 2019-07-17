@@ -19,46 +19,49 @@ rel="stylesheet">
 <body>
 
 <h2 class="title animated fadeInDown"><a href="index.html">Image Editor</h2></a>
-<div class="container-fluid contain">
-<div class="row">
-<div class="col-md-6 editor animated fadeInLeft delay-1s">
+<div class="container contain">
+    <div class="row">
+        <div class="col-md-6 editor animated fadeInLeft delay-1s"></div>
 
-</div>
-<div class="col-md-6 animated fadeInRight delay-1s">
-<div class="card cardstyle" style="width: 35rem;">
-    <div class="card-header bg-danger crdheader">Text Editor</div>
-    <div class="card-body">
+        <div class="col-md-6 animated fadeInRight delay-1s">
+        <div class="card cardstyle" style="width: 35rem;">
+        <div class="card-header bg-danger crdheader">Text Editor</div>
+        <div class="card-body">
         <div class="input-group mb-3">
-            <div class="input-group-prepend">
-                <!-- <span class="input-group-text searchstyle" id="inputGroup-sizing-default">Add
-                    Text</span> -->
-            </div>
+            
             <input type="text" class="form-control searchstyle" aria-label="Default"
-                aria-describedby="inputGroup-sizing-default">
+                aria-describedby="inputGroup-sizing-default" 
+                placeholder="Type your text here ..." id="canvastext"></div>
+        
+            <span><a href="#" class="btn btn-danger bttn" id="saveBttn">Save</a></span>
         </div>
-        <!-- <a href="#" class="btn btn-danger bttn">Apply</a> -->
-        <span><a href="#" class="btn btn-danger bttn">Save</a></span>
-    </div>
-</div>
+        </div>
+        </div>
+        </div>
 <br>
 <br>
-<div class="card cardstyle" style="width: 35rem;">
-    <div class="card-header bg-danger crdheader">Share the Results</div>
-    <div class="card-body">
+        <!-- <div class="card cardstyle" style="width: 35rem;">
+        <div class="card-header bg-danger crdheader">Share the Results</div>
+        <div class="card-body">
         
         <a href="#" class="btn btn-danger bttn">Save As..</a>
         <span><a href="#" class="btn btn-danger bttn">Make a Gift</a></span>
+        </div>
+        </div> -->
     </div>
 </div>
 
-</div>
-</div>
-</div>
+
+
+
     <script src="js/script.js"></script>
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/edit.js"></script>
+    <script src="js/canvas.js"></script>
+    
 </body>
 
 </html>
