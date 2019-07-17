@@ -83,6 +83,7 @@ function convertToImage() {
 };
 
 //this would allow us to download the image to local as a png file
-$('#download').onclick = function download() {
+// did I properly write this onclick function?
+$('#download').on('click', function (event) {
 	convertToImage();
 }
