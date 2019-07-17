@@ -25,12 +25,22 @@ $("#SearchButton").on("click", function (event) {
             $(".gifimages").html("")
 
             for (i = 0; i < 7; i++) {
-                $(".gifimages").append(`<img class="results" src="${imgUrl[i]}"/>`)
+                $(".gifimages").append(`<a href="editor.html"><img class="results" src="${imgUrl[i]}"/></a>`)
+    
             }
-            
+
         });
     });
 });
 
+$(document).on('click', "img", function (event) {
+    var localLink = $(this).attr("src")
+
+    localStorage.clear();
+    localStorage.setItem("img", localLink);
+
+    console.log(localStorage);
+
+});
 
 
