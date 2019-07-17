@@ -52,7 +52,7 @@ window.addEventListener('load', DrawPlaceHolder)
 
 // on load draw function
 function DrawPlaceHolder() {
-	image.onload = function() {
+	img.onload = function() {
 		DrawOverlay(img);
 		DrawText();
 		DynamicText(img)
