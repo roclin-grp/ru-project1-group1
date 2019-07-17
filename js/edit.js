@@ -30,7 +30,7 @@ $( document ).ready(function() {
 		
         });
 	
-};
+});
 
 // this gets the imageLoader id, (which is used to upload images)
 var imageLoader = document.getElementById('imageLoader');
