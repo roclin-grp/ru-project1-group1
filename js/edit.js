@@ -101,6 +101,8 @@ function handleImage(e) {
 	reader.readAsDataURL(e.target.files[0]);
 
 };
+
+// declaring a variable which can be saved when the file is downloaded to use in the gift API
 var completedImage = ""
 // is this also a method we need to re-write to save the image+text overlay after we complete editing?
 function convertToImage() {
