@@ -142,7 +142,7 @@ $("#buyGift").on("click", function() {
     	'reference': '<your-reference-id>',
     	'products': [
 	        {
-	            'product_id': 12345
+	            'product_id': 12345,
             	'variant_id': 'black',
             	'size': 'M',
             	'quantity': 1
