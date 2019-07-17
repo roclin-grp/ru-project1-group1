@@ -1,9 +1,5 @@
 var imgUrl = [];
 
-$("#SearchButton").on("click", function (event) {
-    event.preventDefault();
-
-
     $("#SearchButton").on("click", function (event) {
         event.preventDefault();
         var imgSearch = $("#SearchImage").val().trim();
@@ -16,7 +12,7 @@ $("#SearchButton").on("click", function (event) {
             method: "GET"
         }).then(function (response) {
             imgUrl = []
-            for (i = 0; i < 7; i++) {
+            for (i = 0; i < 8; i++) {
                 var res = response.hits[i].largeImageURL
                 imgUrl.push(res)
                 console.log(imgUrl)
@@ -24,14 +20,14 @@ $("#SearchButton").on("click", function (event) {
 
             $(".gifimages").html("")
 
-            for (i = 0; i < 7; i++) {
+            for (i = 0; i < 8; i++) {
                 $(".gifimages").append(`<a href="editor.html"><img class="results" src="${imgUrl[i]}"/></a>`)
     
             }
 
         });
     });
-});
+
 
 $(document).on('click', "img", function (event) {
     var localLink = $(this).attr("src")
