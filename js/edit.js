@@ -166,4 +166,4 @@ $("#buyGift").on("click", function() {
 	};
 
 	request.send(JSON.stringify(body));
-};
+});
