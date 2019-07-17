@@ -115,7 +115,7 @@ function convertToImage() {
 // did I properly write this onclick function?
 $('#download').on('click', function (event) {
 	convertToImage();
-}
+});
 		  
 		  
 // I still doubt that this is going to work, unless I hear back from a representative
