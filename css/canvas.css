@@ -1,12 +1,4 @@
-body {
-    background: #222;
-    color: #fff;
-    position: relative;
-    text-align: center;
-    font-size: 1rem;
-    font-family: sans-serif;
-    padding-bottom: 3em;
-  }
+
   .page-wrap {
     display: inline-block;
     margin: 2em auto;
@@ -24,19 +16,7 @@ body {
       outline: none;
       color: #fff;
     }
-    &__btn {
-      background: dodgerblue;
-      color: #fff;
-      border: none;
-      font-size: 1em;
-    }
-    &__label {
-       display: block;
-      font-size: .8em;
-      padding-top: .3em;
-      margin-bottom: 2em;
-    }
-  }
+    
   canvas {
     background-color: #eee;
     // opacity: 0;

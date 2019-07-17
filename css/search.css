@@ -12,6 +12,7 @@ body {
 }
 
 .searchBox {
+    margin-top: -50px;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -26,8 +27,7 @@ body {
 
 .searchBox:hover > .searchInput {
     width: 240px;
-    padding: 0 6px;
-    
+    padding: 0 6px;   
 }
 
 .searchBox:hover > .searchButton {
@@ -38,9 +38,10 @@ body {
 .searchBox:active > .searchButton {
     background: blue;
     color : #000000;
-  }
+}
 
 .searchButton {
+    outline: none;
     color: white;
     float: right;
     width: 50px;
