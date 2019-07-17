@@ -101,14 +101,14 @@ function handleImage(e) {
 	reader.readAsDataURL(e.target.files[0]);
 
 };
-
+var completedImage = ""
 // is this also a method we need to re-write to save the image+text overlay after we complete editing?
 function convertToImage() {
 	window.open(canvas.toDataURL('png'));
 	completedImage = canvas.toDataURL('png');
 };
 
-var completedImage = ""
+
 //this would allow us to download the image to local as a png file
 // did I properly write this onclick function?
 $('#download').on('click', function (event) {
@@ -122,7 +122,7 @@ $("#buyGift").on("click", function() {
 		  
 	var request = new XMLHttpRequest();
 
-	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + link);
+	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + completedImage);
 
 	request.setRequestHeader('Content-Type', 'application/json');
 	request.setRequestHeader('Authorization', 'Bearer your_api_key');
