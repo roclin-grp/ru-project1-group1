@@ -13,6 +13,7 @@
 rel="stylesheet">
     
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/canvas.css">
     <title>Edit the The Image</title>
 </head>
 
@@ -21,23 +22,29 @@ rel="stylesheet">
 <h2 class="title animated fadeInDown"><a href="index.html">Image Editor</h2></a>
 <div class="container-fluid contain">
 <div class="row">
-<div class="col-md-6 editor animated fadeInLeft delay-1s">
-
+    <!-- Adding the id for imageCanvas to the div -->
+<div class="col-md-6 editor animated fadeInLeft delay-1s" id="imageCanvas">
+    <!-- Adding the canvas tags and id's as 2 nested within eachother inside the div -->
+    <canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>
 </div>
 <div class="col-md-6 animated fadeInRight delay-1s">
 <div class="card cardstyle" style="width: 35rem;">
     <div class="card-header bg-danger crdheader">Text Editor</div>
     <div class="card-body">
-        <div class="input-group mb-3">
+        <div class="input-group mb-3 controls">
             <div class="input-group-prepend">
                 <!-- <span class="input-group-text searchstyle" id="inputGroup-sizing-default">Add
                     Text</span> -->
+                    <!-- Added input and label tags in case someone decides they can't find what they're looking for from the API; provided this with the same classes as previous span -->
+                <input class="controls__input searchstyle input-group-text" type="file" id="imageLoader inputGroup-sizing-default" name="imageLoader"/>
+                <label class="controls__label" for="name">Upload your own image</label>
             </div>
-            <input type="text" class="form-control searchstyle" aria-label="Default"
+            <input type="text" class="form-control searchstyle" id="name" aria-label="Default"
                 aria-describedby="inputGroup-sizing-default">
         </div>
         <!-- <a href="#" class="btn btn-danger bttn">Apply</a> -->
-        <span><a href="#" class="btn btn-danger bttn">Save</a></span>
+        
+        <!-- <span><a href="#"  class="btn btn-danger bttn">Complete & Save</a></span> -->
     </div>
 </div>
 <br>
@@ -46,8 +53,8 @@ rel="stylesheet">
     <div class="card-header bg-danger crdheader">Share the Results</div>
     <div class="card-body">
         
-        <a href="#" class="btn btn-danger bttn">Save As..</a>
-        <span><a href="#" class="btn btn-danger bttn">Make a Gift</a></span>
+        <a href="#" id="download" class="btn btn-danger bttn">Save Image to Machine</a>
+        <span><a href="#" id="buyGift" class="btn btn-danger bttn">Make a Gift</a></span>
     </div>
 </div>
 

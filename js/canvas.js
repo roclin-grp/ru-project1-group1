@@ -1,36 +1,11 @@
-/* Commenting this code out temporarily
-var link = localStorage.getItem("img")
-console.log(link)
-$(".editor").html(`<img src="${link}" class="editor"/>`);
-*/
-
-
 // existing code from edit.js; this gets the searched image from localstorage
 var link = localStorage.getItem("img")
 console.log(link)
 // loads image into the div
 $(".editor").html(`<img src="${link}" class="editor"/>`);
 
-// this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
-$( document ).ready(function() {
-	var text_title = "";
-	var chuckURL = `http://api.icndb.com/jokes/random`;
-
-        $.ajax({
-            url: chuckURL,
-            method: "GET"
-        }).then(function (response) {
-            var chuckJoke = ""
-            for (i = 0; i < 1; i++) {
-                var res = response.hits[i]
-                chuckJoke = res
-                console.log(chuckJoke)
-		var text_title = chuckJoke
-            }
-		
-        });
-	
-};
+// this is the default text displayed on load
+var text_title = "overlay text";
 
 // this gets the imageLoader id, (which is used to upload images)
 var imageLoader = document.getElementById('imageLoader');
@@ -114,54 +89,3 @@ var completedImage = ""
 $('#download').on('click', function (event) {
 	convertToImage();
 }
-		  
-		  
-// I still doubt that this is going to work, unless I hear back from a representative
-// They denied my application and we DO need a valid API key
-$("#buyGift").on("click", function() {
-		  
-	var request = new XMLHttpRequest();
-
-	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + link);
-
-	request.setRequestHeader('Content-Type', 'application/json');
-	request.setRequestHeader('Authorization', 'Bearer your_api_key');
-
-	request.onreadystatechange = function () {
-  	if (this.readyState === 4) {
-    	console.log('Status:', this.status);
-    	console.log('Headers:', this.getAllResponseHeaders());
-    	console.log('Body:', this.responseText);
-  	}
-	};
-	
-	var body = {
-    	'type': 'order',
-    	'reference': '<your-reference-id>',
-    	'products': [
-	        {
-	            'product_id': 12345
-            	'variant_id': 'black',
-            	'size': 'M',
-            	'quantity': 1
-        	},
-        	{
-	            'product_id': 12345
-	            'variant_id': 'white',
-	            'size': 'S',
-	            'quantity': 1
-	        }
-    	],
-    	'to_address': {
-	        'full_name': 'John Doe',
-	        'shipping1': '1680 Vine St',
-	        'shipping2': 'Suite 400',
-	        'city': 'Los Angeles',
-	        'zip': '90028',
-	        'state': 'CA',
-        	'country': 'US'
-    	}
-	};
-
-	request.send(JSON.stringify(body));
-};
