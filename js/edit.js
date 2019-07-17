@@ -148,7 +148,7 @@ $("#buyGift").on("click", function() {
             	'quantity': 1
         	},
         	{
-	            'product_id': 12345
+	            'product_id': 12345,
 	            'variant_id': 'white',
 	            'size': 'S',
 	            'quantity': 1
