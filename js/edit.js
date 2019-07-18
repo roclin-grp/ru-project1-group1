@@ -1,7 +1,7 @@
 /* Commenting this code out temporarily
-var link = localStorage.getItem("img")
-console.log(link)
-$(".editor").html(`<img src="${link}" class="editor"/>`);
+*  var link = localStorage.getItem("img")
+*  console.log(link)
+*  $(".editor").html(`<img src="${link}" class="editor"/>`);
 */
 
 
@@ -118,8 +118,8 @@ $('#download').on('click', function (event) {
 });
 		  
 		  
-// I still doubt that this is going to work, unless I hear back from a representative
-// They denied my application and we DO need a valid API key
+// I got an API key! I'm not sure if we need additional requests
+// Or do anything else other than log and test this.
 $("#buyGift").on("click", function() {
 		  
 	var request = new XMLHttpRequest();
