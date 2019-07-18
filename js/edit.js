@@ -30,7 +30,7 @@ $( document ).ready(function() {
 		
         });
 	
-};
+});
 
 // this gets the imageLoader id, (which is used to upload images)
 var imageLoader = document.getElementById('imageLoader');
@@ -52,7 +52,7 @@ window.addEventListener('load', DrawPlaceHolder)
 
 // on load draw function
 function DrawPlaceHolder() {
-	image.onload = function() {
+	img.onload = function() {
 		DrawOverlay(img);
 		DrawText();
 		DynamicText(img)
@@ -102,18 +102,20 @@ function handleImage(e) {
 
 };
 
+// declaring a variable which can be saved when the file is downloaded to use in the gift API
+var completedImage = ""
 // is this also a method we need to re-write to save the image+text overlay after we complete editing?
 function convertToImage() {
 	window.open(canvas.toDataURL('png'));
 	completedImage = canvas.toDataURL('png');
 };
 
-var completedImage = ""
+
 //this would allow us to download the image to local as a png file
 // did I properly write this onclick function?
 $('#download').on('click', function (event) {
 	convertToImage();
-}
+});
 		  
 		  
 // I still doubt that this is going to work, unless I hear back from a representative
@@ -122,7 +124,7 @@ $("#buyGift").on("click", function() {
 		  
 	var request = new XMLHttpRequest();
 
-	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + link);
+	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + completedImage);
 
 	request.setRequestHeader('Content-Type', 'application/json');
 	request.setRequestHeader('Authorization', 'Bearer your_api_key');
@@ -140,13 +142,13 @@ $("#buyGift").on("click", function() {
     	'reference': '<your-reference-id>',
     	'products': [
 	        {
-	            'product_id': 12345
+	            'product_id': 12345,
             	'variant_id': 'black',
             	'size': 'M',
             	'quantity': 1
         	},
         	{
-	            'product_id': 12345
+	            'product_id': 12345,
 	            'variant_id': 'white',
 	            'size': 'S',
 	            'quantity': 1
@@ -164,4 +166,4 @@ $("#buyGift").on("click", function() {
 	};
 
 	request.send(JSON.stringify(body));
-};
+});
