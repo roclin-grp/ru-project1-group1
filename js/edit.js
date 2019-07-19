@@ -15,21 +15,23 @@ console.log(link)
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
 var text_title = "Overlay Text";
 
-	// var chuckURL = 'http://api.icndb.com/jokes/random';
+// 	var chuckURL = 'http://api.icndb.com/jokes/random';
+// overlayText();
+// 	function overlayText() {
+// 	$.ajax({
+// 		url: chuckURL,
+// 		method: "GET"
+// 	}).then(function (response) {
+// 		var chuckJoke = ""
+// 		for (i = 0; i < 1; i++) {
+// 			var res = response.hits[i]
+// 			chuckJoke = res
+// 			console.log(chuckJoke)
+// 			return text_title = chuckJoke
+// 		}
 
-	// $.ajax({
-	// 	url: chuckURL,
-	// 	method: "GET"
-	// }).then(function (response) {
-	// 	var chuckJoke = ""
-	// 	for (i = 0; i < 1; i++) {
-	// 		var res = response.hits[i]
-	// 		chuckJoke = res
-	// 		console.log(chuckJoke)
-	// 		text_title = chuckJoke
-	// 	}
-
-	// });
+// 	});
+// };
 
 
 // this gets the imageLoader id, (which is used to upload images)
