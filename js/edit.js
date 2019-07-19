@@ -1,7 +1,7 @@
 /* Commenting this code out temporarily
-var link = localStorage.getItem("img")
+var link = localStorage.getItem("canimg")
 console.log(link)
-$(".editor").html(`<img src="${link}" class="editor"/>`);
+$(".editor").html(`<canimg src="${link}" class="editor"/>`);
 */
 // existing code from edit.js; this gets the searched image from localstorage
 
@@ -9,7 +9,7 @@ $(document).ready(function () {
 var link = localStorage.getItem("img")
 console.log(link)
 // loads image into the div
-/* <img src="${link}"/> */
+/* <canimg src="${link}"/> */
 // $("#canvas-wrap").html(`<canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>`);
 
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
@@ -43,27 +43,27 @@ var canvas = document.getElementById('imageCanvas');
 //  canvas.js method to set the context for image type
 var ctx = canvas.getContext('2d');
 // canvas.js method to create, or instantiate, a new image object
-var img = new Image();
+var canimg = new Image();
 // this modifies the CORS to allow us to make changes to the image
-img.crossOrigin = "anonymous";
+canimg.crossOrigin = "anonymous";
 
 // listens for the page to load, then calls the function "drawplaceholder"
 window.addEventListener('load', DrawPlaceHolder);
 
 // on load draw function
 function DrawPlaceHolder() {
-	img.onload = function () {
-		DrawOverlay(img);
+	canimg.onload = function () {
+		DrawOverlay(canimg);
 		DrawText();
-		DynamicText(img)
+		DynamicText(canimg)
 	};
 	// looking to load the default image as the searched result from the previous page
-	img.src = link
+	canimg.src = link;
 };
 
 //creates the location where the text will be drawn
-function DrawOverlay(img) {
-	ctx.drawImage(img, 0, 0);
+function DrawOverlay(canimg) {
+	ctx.drawImage(canimg, 0, 0);
 	ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
@@ -80,21 +80,21 @@ function DrawText() {
 // this function uplaods an image
 function handleImage(e) {
 	var reader = new FileReader();
-	var img = "";
+	var canimg = "";
 	var src = "";
 	reader.onload = function (event) {
-		img = new Image();
-		img.onload = function () {
-			canvas.width = img.width;
-			canvas.height = img.height;
-			ctx.drawImage(img, 0, 0);
+		canimg = new Image();
+		canimg.onload = function () {
+			canvas.width = canimg.width;
+			canvas.height = canimg.height;
+			ctx.drawImage(canimg, 0, 0);
 		}
-		img.src = event.target.result;
+		canimg.src = event.target.result;
 		src = event.target.result;
 		canvas.classList.add("show");
-		DrawOverlay(img);
+		DrawOverlay(canimg);
 		DrawText();
-		DynamicText(img);
+		DynamicText(canimg);
 	}
 
 	// this method may be helpful to later save and export the image to another API
