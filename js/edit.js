@@ -138,10 +138,10 @@ $("#buyGift").on("click", function () {
 
 	var request = new XMLHttpRequest();
 
-	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + completedImage);
+	request.open('POST', 'https://represent.com/api/fulfilment/orders?buyGift=' + link);
 
 	request.setRequestHeader('Content-Type', 'application/json');
-	request.setRequestHeader('Authorization', 'Bearer your_api_key');
+	request.setRequestHeader('Authorization', 'Bearer test_4fd5d4af12eb98fc9d6a');
 
 	request.onreadystatechange = function () {
 		if (this.readyState === 4) {
