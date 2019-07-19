@@ -5,7 +5,10 @@ $(".editor").html(`<img src="${link}" class="editor"/>`);
 */
 // existing code from edit.js; this gets the searched image from localstorage
 
-$(document).ready(function () {
+$(document).ready(function () {	
+
+randomFacts()
+
 var link = localStorage.getItem("img")
 console.log(link)
 // loads image into the div
@@ -16,23 +19,32 @@ console.log(link)
 
 var text_title = "Overlay Text";
 
-// 	var chuckURL = 'http://api.icndb.com/jokes/random';
-// overlayText();
-// 	function overlayText() {
-// 	$.ajax({
-// 		url: chuckURL,
-// 		method: "GET"
-// 	}).then(function (response) {
-// 		var chuckJoke = ""
-// 		for (i = 0; i < 1; i++) {
-// 			var res = response.hits[i]
-// 			chuckJoke = res
-// 			console.log(chuckJoke)
-// 			return text_title = chuckJoke
-// 		}
+// chuck norris
+function randomFacts(){
+    var xmlhttp = new XMLHttpRequest();
+    var churl = "https://api.chucknorris.io/jokes/random";
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            var json = JSON.parse(this.responseText);  
+			parseResponse(json);
+			// these are the functions that draw text. tried adding these but they don't work
+			// DrawText();
+			// DynamicText(img);
+        }
+};
+xmlhttp.open("GET", churl, true);
+xmlhttp.send();
+}
+//changed this to target the variable that is overlay text
+function parseResponse(json){
+ text_title =  json["value"];
+ console.log(text_title);
+}
 
-// 	});
-// };
+document.getElementById("logo").addEventListener("click", function(){
+randomFacts();
+});
+
 
 
 // this gets the imageLoader id, (which is used to upload images)
@@ -60,7 +72,7 @@ function DrawPlaceHolder() {
 	img.onload = function () {
 		LinkDrawOverlay(img);
 		DrawText();
-		DynamicText(img)
+		DynamicText(img);
 	};
 	
 };
@@ -71,7 +83,7 @@ function DynamicText(img) {
 	  DrawOverlay(img);
 	  DrawText(); 
 	  text_title = this.value;
-	  ctx.font = "72px, impact";
+	  ctx.font = "72px impact";
 	  ctx.fillText(text_title, 50, 50);
 	});
   }
