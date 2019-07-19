@@ -47,7 +47,7 @@ var img = new Image();
 // img.src = link
 // this modifies the CORS to allow us to make changes to the image
 img.crossOrigin = "anonymous";
-DrawPlaceHolder(link)
+DrawPlaceHolder(link);
 // listens for the page to load, then calls the function "drawplaceholder"
 // window.addEventListener('load', DrawPlaceHolder);
 
@@ -55,7 +55,7 @@ DrawPlaceHolder(link)
 function DrawPlaceHolder() {
 	img.src = link;
 	img.onload = function () {
-		DrawOverlay(img);
+		LinkDrawOverlay(img);
 		DrawText();
 		DynamicText(img)
 	};
@@ -74,10 +74,21 @@ function DynamicText(img) {
 
 //creates the location where the text will be drawn
 function DrawOverlay(img) {
+	// canvas.width = img.width;
+	// canvas.height = img.height;
 	ctx.drawImage(img, 0, 0);
 	ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
+
+function LinkDrawOverlay(img) {
+	canvas.width = img.width;
+	canvas.height = img.height;
+	ctx.drawImage(img, 0, 0);
+	ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
+	ctx.fillRect(0, 0, canvas.width, canvas.height);
+};
+
 
 // creates the text itself 
 function DrawText() {
