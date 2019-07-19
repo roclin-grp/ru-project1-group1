@@ -1,40 +1,47 @@
-var text_title ="Overlay text";
-var imageLoader = document.getElementById('imageLoader');
-    imageLoader.addEventListener('change', handleImage, false);
-var canvas = document.getElementById('imageCanvas');
-var ctx = canvas.getContext('2d');
-var img = new Image();
-img.crossOrigin="anonymous";
+console.log("canvas")
 
-window.addEventListener('load', DrawPlaceholder)
 
-    $("#saveBttn").on("click", function (event) {
-        event.preventDefault();
-        var canvText = $("#canvastext").val().trim();
-        console.log(canvText);
+$("#saveBttn").on("click", function (event) {
+    event.preventDefault();
+    // alert("hi")
 
-      var queryURL = `https://pixabay.com/api/?key=13047378-53a3deeca335efb67ec1a09e6&q="${imgSearch}"&image_type=photo`;
+    var toDoTask = $("#to-do").val().trim();
 
-	   $.ajax({            
-		   url: queryURL,
-		   method: "GET"
-         }).then(function (response) {
-            imgUrl = []
-            for (i = 0; i < 12; i++) {
-			var res = response.hits[i].largeImageURL
-			              imgUrl.push(res)
-               console.log(imgUrl)
-           }
+console.log(toDoTask);
 
-             $(".gifimages").html("")
+// $("#canvastext").html(toDoTask);
+$("#test").html(toDoTask);
 
-            for (i = 0; i < 12; i++) {
-                $(".gifimages").append(`<a href="editor.html"><img class="results" src="${imgUrl[i]}"/></a>`)
-    
-            }
+});
 
-        });
-     });
+
+
+ $("#saveBttn").on("click", function (event) {
+     event.preventDefault();
+    var canvText = $("#canvastext").val().trim();
+    console.log(canvText);
+     var queryURL = `https://pixabay.com/api/?key=13047378-53a3deeca335efb67ec1a09e6&q="${imgSearch}"&image_type=photo`;
+
+    $.ajax({
+        url: queryURL,
+         method: "GET"
+    }).then(function (response) {
+        imgUrl = []
+        for (i = 0; i < 12; i++) {
+        var res = response.hits[i].largeImageURL
+        imgUrl.push(res)
+        console.log(imgUrl)
+        }
+
+        $(".gifimages").html("")
+
+         for (i = 0; i < 12; i++) {
+             $(".gifimages").append(`<a href="editor.html"><img class="results" src="${imgUrl[i]}"/></a>`)
+
+      }
+
+    });
+ });
 
 
  $(document).on('click', "img", function (event) {
@@ -43,69 +50,67 @@ window.addEventListener('load', DrawPlaceholder)
     localStorage.setItem("img", localLink);
 
 
-	console.log(localStorage);
+    console.log(localStorage);
 
-});
+ });
 
 
 
-function DrawPlaceholder() {
-    img.onload = function() {
+ function DrawPlaceholder() {
+     img.onload = function () {
         DrawOverlay(img);
         DrawText();
         DynamicText(img)
     };
     img.src = 'https://unsplash.it/400/400/?random';
-  
-}
-function DrawOverlay(img) {
-    ctx.drawImage(img,0,0);
-    ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-}
-function DrawText() {
-    ctx.fillStyle = "white";
-    ctx.textBaseline = 'middle';
-    ctx.font = "50px 'Montserrat'";
-    ctx.fillText(text_title, 50, 50);
-}
-function DynamicText(img) {
-  document.getElementById('canvastext').addEventListener('keyup', function() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    DrawOverlay(img);
-    DrawText(); 
-    text_title = this.value;
-    ctx.fillText(text_title, 50, 50);
-  });
-}
-function handleImage(e) {
-    var reader = new FileReader();
-    var img = "";
-    var src = "";
-    reader.onload = function(event) {
-        img = new Image();
-        img.onload = function() {
-            canvas.width = img.width;
-            canvas.height = img.height;
-            ctx.drawImage(img,0,0);
+
+ }
+ function DrawOverlay(img) {
+     ctx.drawImage(img, 0, 0);
+     ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
+     ctx.fillRect(0, 0, canvas.width, canvas.height);
+ }
+ function DrawText() {
+     ctx.fillStyle = "white";
+     ctx.textBaseline = 'middle';
+     ctx.font = "50px 'Montserrat'";
+     ctx.fillText(text_title, 50, 50);
+ }
+ function DynamicText(img) {
+     document.getElementById('canvastext').addEventListener('keyup', function () {
+         ctx.clearRect(0, 0, canvas.width, canvas.height);
+         DrawOverlay(img);
+         DrawText();
+        text_title = this.value;
+        ctx.fillText(text_title, 50, 50);
+     });
+ }
+ function handleImage(e) {
+   var reader = new FileReader();
+   var img = "";
+   var src = "";
+   reader.onload = function (event) {
+       img = new Image();
+       img.onload = function () {
+       canvas.width = img.width;
+       canvas.height = img.height;            
+       ctx.drawImage(img, 0, 0);
         }
         img.src = event.target.result;
         src = event.target.result;
         canvas.classList.add("show");
         DrawOverlay(img);
-        DrawText(); 
-        DynamicText(img);   
+        DrawText();
+        DynamicText(img);
     }
 
-    reader.readAsDataURL(e.target.files[0]); 
- 
-}
-function convertToImage() {
-	window.open(canvas.toDataURL('png'));
-}
-document.getElementById('download').onclick = function download() {
-		convertToImage();
-}
+    reader.readAsDataURL(e.target.files[0]);
 
-
+}
+ function convertToImage() {
+     window.open(canvas.toDataURL('png'));
+ }
+ document.getElementById('download').onclick = function download() {
+     convertToImage();
+ }
 

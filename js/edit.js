@@ -4,7 +4,6 @@ console.log(link)
 $(".editor").html(`<img src="${link}" class="editor"/>`);
 */
 
-
 // existing code from edit.js; this gets the searched image from localstorage
 var link = localStorage.getItem("img")
 console.log(link)
