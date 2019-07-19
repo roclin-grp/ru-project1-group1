@@ -1,7 +1,7 @@
 /* Commenting this code out temporarily
-var link = localStorage.getItem("canimg")
+var link = localStorage.getItem("img")
 console.log(link)
-$(".editor").html(`<canimg src="${link}" class="editor"/>`);
+$(".editor").html(`<img src="${link}" class="editor"/>`);
 */
 // existing code from edit.js; this gets the searched image from localstorage
 
@@ -9,7 +9,7 @@ $(document).ready(function () {
 var link = localStorage.getItem("img")
 console.log(link)
 // loads image into the div
-/* <canimg src="${link}"/> */
+/* <img src="${link}"/> */
 // $("#canvas-wrap").html(`<canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>`);
 
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
@@ -43,27 +43,38 @@ var canvas = document.getElementById('imageCanvas');
 //  canvas.js method to set the context for image type
 var ctx = canvas.getContext('2d');
 // canvas.js method to create, or instantiate, a new image object
-var canimg = new Image();
+var img = new Image();
+// img.src = link
 // this modifies the CORS to allow us to make changes to the image
-canimg.crossOrigin = "anonymous";
-
+img.crossOrigin = "anonymous";
+DrawPlaceHolder(link)
 // listens for the page to load, then calls the function "drawplaceholder"
-window.addEventListener('load', DrawPlaceHolder);
+// window.addEventListener('load', DrawPlaceHolder);
 
 // on load draw function
 function DrawPlaceHolder() {
-	canimg.onload = function () {
-		DrawOverlay(canimg);
+	img.src = link;
+	img.onload = function () {
+		DrawOverlay(img);
 		DrawText();
-		DynamicText(canimg)
+		DynamicText(img)
 	};
-	// looking to load the default image as the searched result from the previous page
-	canimg.src = link;
+	
 };
 
+function DynamicText(img) {
+	document.getElementById('name').addEventListener('keyup', function() {
+	  ctx.clearRect(0, 0, canvas.width, canvas.height);
+	  DrawOverlay(img);
+	  DrawText(); 
+	  text_title = this.value;
+	  ctx.fillText(text_title, 50, 50);
+	});
+  }
+
 //creates the location where the text will be drawn
-function DrawOverlay(canimg) {
-	ctx.drawImage(canimg, 0, 0);
+function DrawOverlay(img) {
+	ctx.drawImage(img, 0, 0);
 	ctx.fillStyle = 'rgba(30, 144, 255, 0.4)';
 	ctx.fillRect(0, 0, canvas.width, canvas.height);
 };
@@ -78,28 +89,31 @@ function DrawText() {
 };
 
 // this function uplaods an image
-function handleImage(e) {
+async function handleImage(e) {
+	try {
 	var reader = new FileReader();
-	var canimg = "";
+	var img = "";
 	var src = "";
 	reader.onload = function (event) {
-		canimg = new Image();
-		canimg.onload = function () {
-			canvas.width = canimg.width;
-			canvas.height = canimg.height;
-			ctx.drawImage(canimg, 0, 0);
+		img = new Image();
+		img.onload = function () {
+			canvas.width = img.width;
+			canvas.height = img.height;
+			ctx.drawImage(img, 0, 0);
 		}
-		canimg.src = event.target.result;
+		img.src = event.target.result;
 		src = event.target.result;
 		canvas.classList.add("show");
-		DrawOverlay(canimg);
+		DrawOverlay(img);
 		DrawText();
-		DynamicText(canimg);
+		DynamicText(img);
 	}
 
 	// this method may be helpful to later save and export the image to another API
 	reader.readAsDataURL(e.target.files[0]);
-
+	} catch {
+		console.log("sad handleImage function")
+	}
 };
 
 // declaring a variable which can be saved when the file is downloaded to use in the gift API
