@@ -26,11 +26,16 @@ img {
 }
 
 .contain {
-    position: relative;
     margin-top: 50px;
-    margin-left: 120px;
     text-align: center;
 }
+/* .canv {
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 40px;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 1px 1px 1px black:
+} */
 .crdheader {
     font-family: 'Mountains of Christmas', cursive;
     font-size: 30px;
@@ -41,7 +46,7 @@ img {
 .cardstyle {
     border: 1px solid darkred;
     border-radius: 5px 5px 15px 5px;
-    height: 200px;
+    height: 210px;
     box-shadow: 5px 5px 10px black;
 }
 .searchstyle {
@@ -51,6 +56,17 @@ img {
 .bttn {
     width: 200px;
     border: 1px solid darkred;
+}
+
+.bttn:hover {
+    width: 200px;
+    background-color: blue;
+    border: 1px solid darkred;
+    transition: 1s;
+    -webkit-transition: 1s;
+    -moz-transition: 1s;
+    -ms-transition: 1s;
+    -o-transition: 1s;
 }
 .results {
     width: 300px;
