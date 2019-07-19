@@ -23,9 +23,11 @@ rel="stylesheet">
 <div class="container-fluid contain">
 <div class="row">
     <!-- Adding the id for imageCanvas to the div -->
-<div class="col-md-6 editor animated fadeInLeft delay-1s" id="imageCanvas">
+<div class="col-md-6 editor animated fadeInLeft delay-1s" id="canvas-wrap">
     <!-- Adding the canvas tags and id's as 2 nested within eachother inside the div -->
-    <canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>
+    <canvas style="display:block" id="imageCanvas">
+        <canvas id="canvasID"></canvas>
+    </canvas>
 </div>
 <div class="col-md-6 animated fadeInRight delay-1s">
 <div class="card cardstyle" style="width: 35rem;">
@@ -36,7 +38,7 @@ rel="stylesheet">
                 <!-- <span class="input-group-text searchstyle" id="inputGroup-sizing-default">Add
                     Text</span> -->
                     <!-- Added input and label tags in case someone decides they can't find what they're looking for from the API; provided this with the same classes as previous span -->
-                <input class="controls__input searchstyle input-group-text" type="file" id="imageLoader inputGroup-sizing-default" name="imageLoader"/>
+                <input class="controls__input searchstyle input-group-text" type="file" id="imageLoader" name="imageLoader" />
             <label class="controls__label" for="name"></label>
             </div> </div>
             <div>
@@ -54,19 +56,19 @@ rel="stylesheet">
     <div class="card-header bg-danger crdheader">Share the Results</div>
     <div class="card-body">
         
-        <a href="#" id="download" class="btn btn-danger bttn">Save Image to Machine</a>
-        <span><a href="#" id="buyGift" class="btn btn-danger bttn">Make a Gift</a></span>
+        <a id="download" class="btn btn-danger bttn">Save Image to Machine</a>
+        <span><a id="buyGift" class="btn btn-danger bttn">Make a Gift</a></span>
     </div>
 </div>
 
 </div>
 </div>
 </div>
-    <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/edit.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>
