@@ -120,15 +120,25 @@ async function handleImage(e) {
 var completedImage = ""
 // is this also a method we need to re-write to save the image+text overlay after we complete editing?
 function convertToImage() {
-	window.open(canvas.toDataURL('png'));
+	// window.open(canvas.toDataURL('png'));
 	completedImage = canvas.toDataURL('png');
+	return completedImage
 };
 
 
 //this would allow us to download the image to local as a png file
 // did I properly write this onclick function?
 $('#download').on('click', function (event) {
-	convertToImage();
+	var dlimage = convertToImage();
+	var a = document.createElement('a');
+	a.setAttribute('href', 'data:image/png;'+dlimage);
+	a.setAttribute('download', $("#name").val());
+
+	a.style.display = 'none';
+	document.body.appendChild(a);
+	a.click();
+	document.body.removeChild(a);
+
 });
 
 
