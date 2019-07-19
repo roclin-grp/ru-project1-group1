@@ -1,9 +1,10 @@
 # ru-project1-group1
 
 # Contributors
+  Mav
+  Alex
+  Matt
+  eric
+  paul
 
-Alex
-eric
-mav
-paul
-
+with instruction by Andrew

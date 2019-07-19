@@ -88,4 +88,4 @@ var completedImage = ""
 // did I properly write this onclick function?
 $('#download').on('click', function (event) {
 	convertToImage();
-}
+});
