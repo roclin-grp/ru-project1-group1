@@ -13,6 +13,7 @@ console.log(link)
 // $("#canvas-wrap").html(`<canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>`);
 
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
+
 var text_title = "Overlay Text";
 
 // 	var chuckURL = 'http://api.icndb.com/jokes/random';
@@ -70,6 +71,7 @@ function DynamicText(img) {
 	  DrawOverlay(img);
 	  DrawText(); 
 	  text_title = this.value;
+	  ctx.font = "72px, impact";
 	  ctx.fillText(text_title, 50, 50);
 	});
   }
@@ -96,7 +98,7 @@ function LinkDrawOverlay(img) {
 function DrawText() {
 	ctx.fillStyle = "white";
 	ctx.textBaseline = 'middle';
-	ctx.font = "50px 'Montserrat'";
+	ctx.font = "72px impact";
 	ctx.fillText(text_title, 50, 50);
 
 };
