@@ -27,15 +27,14 @@ function randomFacts(){
         if (this.readyState == 4 && this.status == 200){
             var json = JSON.parse(this.responseText);  
 			parseResponse(json);
-			// these are the functions that draw text. tried adding these but they don't work
-			// DrawText();
-			// DynamicText(img);
+			DrawText();
+			DynamicText(img);
         }
 };
 xmlhttp.open("GET", churl, true);
 xmlhttp.send();
 }
-//changed this to target the variable that is overlay text
+
 function parseResponse(json){
  text_title =  json["value"];
  console.log(text_title);
