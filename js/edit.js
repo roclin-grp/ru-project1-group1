@@ -68,6 +68,7 @@ function DynamicText(img) {
 	  DrawOverlay(img);
 	  DrawText(); 
 	  text_title = this.value;
+	  ctx.font = "72px impact";
 	  ctx.fillText(text_title, 50, 50);
 	});
   }
@@ -94,7 +95,7 @@ function LinkDrawOverlay(img) {
 function DrawText() {
 	ctx.fillStyle = "white";
 	ctx.textBaseline = 'middle';
-	ctx.font = "50px 'Montserrat'";
+	ctx.font = "80px impact";
 	ctx.fillText(text_title, 50, 50);
 
 };
