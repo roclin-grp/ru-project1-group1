@@ -5,7 +5,10 @@ $(".editor").html(`<img src="${link}" class="editor"/>`);
 */
 // existing code from edit.js; this gets the searched image from localstorage
 
-$(document).ready(function () {
+$(document).ready(function () {	
+
+randomFacts()
+
 var link = localStorage.getItem("img")
 console.log(link)
 // loads image into the div
@@ -13,23 +16,34 @@ console.log(link)
 // $("#canvas-wrap").html(`<canvas style="display:block" id="imageCanvas"><canvas id="canvasID"></canvas></canvas>`);
 
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
+
 var text_title = "Overlay Text";
 
-	// var chuckURL = 'http://api.icndb.com/jokes/random';
+// chuck norris
+function randomFacts(){
+    var xmlhttp = new XMLHttpRequest();
+    var churl = "https://api.chucknorris.io/jokes/random";
+    xmlhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200){
+            var json = JSON.parse(this.responseText);  
+			parseResponse(json);
+			DrawText();
+			DynamicText(img);
+        }
+};
+xmlhttp.open("GET", churl, true);
+xmlhttp.send();
+}
 
-	// $.ajax({
-	// 	url: chuckURL,
-	// 	method: "GET"
-	// }).then(function (response) {
-	// 	var chuckJoke = ""
-	// 	for (i = 0; i < 1; i++) {
-	// 		var res = response.hits[i]
-	// 		chuckJoke = res
-	// 		console.log(chuckJoke)
-	// 		text_title = chuckJoke
-	// 	}
+function parseResponse(json){
+ text_title =  json["value"];
+ console.log(text_title);
+}
 
-	// });
+document.getElementById("logo").addEventListener("click", function(){
+randomFacts();
+});
+
 
 
 // this gets the imageLoader id, (which is used to upload images)
@@ -57,7 +71,7 @@ function DrawPlaceHolder() {
 	img.onload = function () {
 		LinkDrawOverlay(img);
 		DrawText();
-		DynamicText(img)
+		DynamicText(img);
 	};
 	
 };
@@ -68,7 +82,7 @@ function DynamicText(img) {
 	  DrawOverlay(img);
 	  DrawText(); 
 	  text_title = this.value;
-	  ctx.font = "72px impact";
+	  ctx.font = "60px impact";
 	  ctx.fillText(text_title, 50, 50);
 	});
   }
@@ -95,7 +109,9 @@ function LinkDrawOverlay(img) {
 function DrawText() {
 	ctx.fillStyle = "white";
 	ctx.textBaseline = 'middle';
-	ctx.font = "80px impact";
+
+	ctx.font = "60px impact";
+
 	ctx.fillText(text_title, 50, 50);
 
 };
