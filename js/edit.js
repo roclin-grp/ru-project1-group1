@@ -17,7 +17,7 @@ console.log(link)
 
 // this is the default text displayed on load, I'm adding the Chuck Norris joke API to fill this in on default
 
-var text_title = "Overlay Text";
+var text_title = " ";
 
 // chuck norris
 function randomFacts(){
