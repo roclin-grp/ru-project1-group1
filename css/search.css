@@ -1,12 +1,12 @@
 body {
-    background-image: linear-gradient(to right , #cb2d3e , #1c26b9) !important;
+    background: cornflowerblue;
 }
 
 .title {
     text-align: center;
     margin-top: 100px;
     color: white;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: 'impact';
     font-size: 80px;
     text-shadow: 5px 5px 5px black;
 }
@@ -31,7 +31,7 @@ body {
 }
 
 .searchBox:hover > .searchButton {
-  background: orangered;
+  background: #ff4500;
   color : #000000;
 }
 
@@ -55,7 +55,7 @@ body {
 }
 
 .searchInput {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'impact';
     font-size: 20px;
     border:none;
     background: none;
