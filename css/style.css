@@ -1,9 +1,12 @@
 body {
-    background-image: 
-    linear-gradient(to right ,#cb2d3e , #1c26b9);
+    background: cornflowerblue;
 }
 a {
     color: white;
+}
+
+.rcard {
+    background: slategray;
 }
 
 a:hover {
@@ -20,7 +23,7 @@ img {
     text-align: center;
     margin-top: 30px;
     color: white;
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: 'impact';
     font-size: 80px;
     text-shadow: 5px 5px 5px black;
 }
@@ -29,28 +32,21 @@ img {
     margin-top: 50px;
     text-align: center;
 }
-/* .canv {
-    font-family: 'Mountains of Christmas', cursive;
-    font-size: 40px;
-    text-transform: uppercase;
-    color: white;
-    text-shadow: 1px 1px 1px black:
-} */
 .crdheader {
-    font-family: 'Mountains of Christmas', cursive;
+    font-family: 'impact';
     font-size: 30px;
     font-weight: bold;
     color: aliceblue;
     text-shadow: 1px 1px 2px black;
 }
 .cardstyle {
-    border: 1px solid darkred;
+    border: 1px solid slategray;
     border-radius: 5px 5px 15px 5px;
     height: 210px;
     box-shadow: 5px 5px 10px black;
 }
 .searchstyle {
-    border: 1px solid darkred;
+    border: 1px solid slategray;
     text-transform: uppercase;
 }
 .bttn {
